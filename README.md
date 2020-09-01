@@ -4,7 +4,7 @@
 
 This is a simple serverless up/down monitor that runs every 5 minutes and sends you an alert you in Slack if your website is down (or goes from down->up).
 
-I wanted to see if I could use AWS SSM Parameter Store as a free key-value DB. Nothing as brazen as @QuinnyPig's route53 database, but still interesting:
+I wanted to see if I could use AWS SSM Parameter Store as a free key-value DB. Nothing as brazen as [@QuinnyPig's route53 database](https://twitter.com/QuinnyPig/status/1120653859561459712), but still interesting:
 
 * Use AWS Chalice to define a scheduled AWS Lambda job that runs every 5 minutes.
 * Uses SSM Parameter Store as a database to store the last known status of each endpoint.
