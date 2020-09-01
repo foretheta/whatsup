@@ -1,0 +1,16 @@
+endpoints:
+    - url: https://www.foretheta.com
+      port: 443
+    - url: https://traindex.io
+      port: 443
+    - url: https://billgist.com
+      port: 443
+    - url: https://danial.io
+    - url: https://google.com
+
+notification:
+    - type: slack
+      message_down: "The website is down."
+      message_up: "The website is up."
+      icon_url: https://path/to/image.png
+      webhook: https://hooks.slack.com/services/PATH/AND/TOKEN

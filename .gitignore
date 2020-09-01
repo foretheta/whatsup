@@ -1,0 +1,13 @@
+.chalice/*
+.venv
+.vscode
+.pytest_cache
+__pycache__
+*.pyc
+.cache
+vendor/
+.coverage
+coverage.xml
+htmlcov/
+*.egg-info/
+config.yaml
