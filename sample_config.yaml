@@ -12,5 +12,5 @@ notification:
     - type: slack
       message_down: "The website is down."
       message_up: "The website is up."
-      icon_url: https://path/to/image.png
+      icon_url: https://s3-us-west-2.amazonaws.com/whatsup.sh/public/whatsup-log-small.png
       webhook: https://hooks.slack.com/services/PATH/AND/TOKEN
