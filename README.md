@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This is a simple serverless up/down monitor that runs every 5 minutes and sends you an alert you in Slack if your website is down (or goes from down->up).
+This is a simple serverless up/down monitor that runs every 5 minutes and sends you an alert in Slack if your website is down (or goes from down->up).
 
 I wanted to see if I could use AWS SSM Parameter Store as a free key-value DB. Nothing as brazen as [@QuinnyPig's route53 database](https://twitter.com/QuinnyPig/status/1120653859561459712), but still interesting:
 
@@ -60,7 +60,7 @@ That's it!
 
 ### Example structure
 
-The example is divided into the following files.
+The example is divided into the following files:
 
 **app.py**
 
@@ -90,6 +90,6 @@ python -m pytest
 - [AWS Systems Manager Parameter Store](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html)
 
 ---
-Copyright Forehteta, Inc. All Rights Reserved.
+Copyright Foretheta, Inc. All Rights Reserved.
 
 SPDX-License-Identifier: Apache-2.0
