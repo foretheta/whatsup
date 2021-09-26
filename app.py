@@ -90,9 +90,10 @@ def report_status_if_changed(notifications, website, website_status):
             push_notification(n, website, website_status)
 
 
-def check_endpoint_status(endpoint) -> WebsiteStatus:
+def check_endpoint_status(endpoint, cookie) -> WebsiteStatus:
     try:
-        response = requests.get(endpoint, timeout=5, allow_redirects=True)
+        response = requests.get(endpoint, timeout=5,
+                                allow_redirects=True, cookies=cookie)
         status_code = response.status_code
         reason = response.reason
     except requests.exceptions.ConnectionError:
@@ -116,8 +117,9 @@ def get_url_with_port(url, port):
 
 def check_status(endpoints, notifications):
     for endpoint in endpoints:
+        cookie = endpoint.get("cookies", None)
         url = get_url_with_port(endpoint["url"], endpoint.get("port", "80")) # Check if port should be int
-        status = check_endpoint_status(url)
+        status = check_endpoint_status(url, cookie)
         # TODO url is already included in status, no need to pass both around
         report_status_if_changed(notifications, url, status)
 
