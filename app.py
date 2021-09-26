@@ -64,12 +64,17 @@ def save_status(website, website_status):
     return False
 
 
-def push_notification(notification, website):
+def push_notification(notification, website, website_status):
     if notification.webhook:
+        if(website_status.status_code == 200):
+            notification_message = notification.message_up
+        else:
+            notification_message = notification.message_down
+
         response = requests.post(
             notification.webhook,
             json={
-                "text": f"{notification.message_down} - {website}",
+                "text": f"{notification_message} - {website}",
                 "icon_url": notification.icon_url,
             },
         )
@@ -82,7 +87,7 @@ def report_status_if_changed(notifications, website, website_status):
 
     if changed:
         for n in notifications:
-            push_notification(n, website)
+            push_notification(n, website, website_status)
 
 
 def check_endpoint_status(endpoint) -> WebsiteStatus:
